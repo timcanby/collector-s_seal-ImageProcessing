@@ -130,7 +130,7 @@ def caculate_clusters_b(image):
     for bandiplus1 in it:
 
         result1.append((bandiplus1 - bandi) / bandi)
-    print(result1.index(min(result1)))
+
     Initbandwidth=Bandwidth[result1.index(min(result1))]
     startpoint=findIndex(np.hsplit(np.array(Labels_index), 2)[0],Initbandwidth)[0]
     endpoint=findIndex(np.hsplit(np.array(Labels_index), 2)[0], Endbandwidth)[0]
@@ -143,14 +143,14 @@ def caculate_clusters_b(image):
 
 def mapping(image):
     img = np.array(cv2.imread(image))
-    res = cv2.resize(img, (64,64))
+    res = cv2.resize(img, (128,128))
     cv2.imwrite(image, res)
     img = np.array(cv2.imread(image))
     xy=preprocessing(image)
 
 
     Labels_index=caculate_clusters_b(image)
-    print(Labels_index)
+  
     x_init=[]
     y_init=[]
     color=[]

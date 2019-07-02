@@ -66,7 +66,7 @@ def Binarization(path, K):
 
 parser = argparse.ArgumentParser(description='Convert font to images')
 parser.add_argument('--ImageSelecter', dest='Image_path', type=str, default='test.jpg', help='Enter the file name you want to process')
-parser.add_argument('--clusters', dest='K', type=int, default=4, help='Enter the number of layers you want to separate')
+parser.add_argument('--clusters', dest='K', type=int, default=3, help='Enter the number of layers you want to separate')
 args = parser.parse_args()
 
 Binarization(args.Image_path,args.K)
