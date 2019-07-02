@@ -12,12 +12,12 @@ automatically extracts areas with more red components by using k-means clusterin
 
 -------
 
-The default value of K is 4.
+The default value of K is 3.
 
 run:
 ```python
 python3 Binarization.py --ImageSelecter=imageDir(default='test.jpg') --clusters=K
-Ex.python Binarization.py --ImageSelecter=test.jpg  --clusters=4
+Ex.python Binarization.py --ImageSelecter=test.jpg  --clusters=3
 
 ```
 to get results of Binarization.The generated file will be named Binarization(0-n).jpg
