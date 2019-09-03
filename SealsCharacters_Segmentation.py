@@ -1,6 +1,6 @@
 #coding=utf-8
 import os
-
+from numpy.random import *
 import numpy as np
 import  cv2
 from sklearn.cluster import MeanShift, estimate_bandwidth
@@ -102,8 +102,9 @@ def caculate_clusters_b(image):
     Bandwidth=[]
     clusters=[]
     flag=0
+    RandamBand=sorted(rand(50))
     for i in range(0,50):
-        q = i / 100
+        q = RandamBand[i]
         labels,cluster_centers,labels_unique,n_clusters_ ,band = cluster(preprocessing(image),q)
         Labels_index.append([band, labels])
 
@@ -129,11 +130,15 @@ def caculate_clusters_b(image):
     bandi = float(it.__next__())
     for bandiplus1 in it:
 
-        result1.append((bandiplus1 - bandi) / bandi)
+        result1.append(abs(bandiplus1 - bandi)/bandi)
 
     Initbandwidth=Bandwidth[result1.index(min(result1))]
     startpoint=findIndex(np.hsplit(np.array(Labels_index), 2)[0],Initbandwidth)[0]
-    endpoint=findIndex(np.hsplit(np.array(Labels_index), 2)[0], Endbandwidth)[0]
+
+    if Endbandwidth!=0:
+        endpoint=findIndex(np.hsplit(np.array(Labels_index), 2)[0], Endbandwidth)[0]
+    else:
+        endpoint=len(Labels_index)
 
     return Labels_index[startpoint:endpoint]
 
@@ -158,8 +163,8 @@ def mapping(image):
         x_init.append(item[0])
         y_init.append(item[1])
 
-    for i in Labels_index[1][1]:
-         color.append(i/10)
+    #for i in Labels_index[1][1]:
+         #color.append(i/10)
 
 
     flag=0
@@ -188,5 +193,4 @@ parser.add_argument('--ImageSelecter', dest='Image_path', type=str, default='Bin
 args = parser.parse_args()
 print(args.Image_path)
 mapping(args.Image_path)
-
 
