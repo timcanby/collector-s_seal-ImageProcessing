@@ -102,8 +102,8 @@ def caculate_clusters_b(image):
     Bandwidth=[]
     clusters=[]
     flag=0
-    RandamBand=sorted(rand(50))
-    for i in range(0,50):
+    RandamBand=sorted(rand(20))
+    for i in range(0,20):
         q = RandamBand[i]
         labels,cluster_centers,labels_unique,n_clusters_ ,band = cluster(preprocessing(image),q)
         Labels_index.append([band, labels])
