@@ -1,6 +1,6 @@
 # collector-s_seal-ImageProcessing
 This is a simple demo for processing stamp images.
-
+*Update to SealsCharacters_Segmentation_1.02.py
 In classical materials, seals are often covered by handwritten words.
 
 ![](image/1CAC342D-ECE6-457C-AF2A-5D20C6D33EEA.png)
