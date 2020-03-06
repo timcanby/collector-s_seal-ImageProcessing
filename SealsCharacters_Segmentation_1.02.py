@@ -241,7 +241,7 @@ def mapping(image):
 
 
 parser = argparse.ArgumentParser(description='Convert font to images')
-parser.add_argument('--ImageSelecter', dest='Image_path', type=str, default='Binarization0.jpg', help='ex Binarization2.jpg')
+parser.add_argument('--ImageSelecter', dest='Image_path', type=str, default='Binarization2.jpg', help='ex Binarization2.jpg')
 args = parser.parse_args()
 print(args.Image_path)
 mapping(args.Image_path)
